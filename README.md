@@ -6,13 +6,13 @@ A small skill stack for completing software tasks without accumulating avoidable
 
 | Skill | Purpose |
 | --- | --- |
-| [engineer](skills/engineer/SKILL.md) | Investigate, choose a design, implement, verify, and establish completion. |
+| [engineer](skills/engineer/SKILL.md) | Investigate, choose a design, implement, verify, and confirm what is done. |
 | [review-change](skills/review-change/SKILL.md) | Independently assess requirements, correctness, and structural quality. |
 | [prevent-repeat](skills/prevent-repeat/SKILL.md) | Convert demonstrated recurring mistakes into enforced constraints. |
 
-`engineer` is the normal entry point. It requests an independent review for substantial changes.
-`prevent-repeat` runs when recurring corrections justify separate work.
-Both core skills share one [architecture reference](skills/engineer/references/architecture.md).
+`engineer` is the normal entry point. For substantial changes it runs `review-change` with a fresh reviewer.
+Invoke `prevent-repeat` when the same correction keeps coming back.
+All three skills share one [architecture reference](skills/engineer/references/architecture.md).
 
 ## Explicit invocation
 
@@ -20,8 +20,8 @@ All three skills set `policy.allow_implicit_invocation: false` in `agents/openai
 Codex does not select them automatically from a matching task. Explicit `$skill-name` invocation remains available.
 See the [Codex invocation policy](https://learn.chatgpt.com/docs/build-skills#optional-metadata).
 
-Invoking `$engineer` includes its bundled `review-change` step. You do not need to invoke that step separately.
-Standalone review and recurring-correction work require explicit invocation of their respective skills.
+Invoking `$engineer` covers the `review-change` step it runs for substantial changes. You do not need to invoke it separately.
+To review a change on its own, or to work on a recurring mistake, invoke `$review-change` or `$prevent-repeat` directly.
 
 ## Use without installation
 
@@ -37,7 +37,7 @@ The repository is usable by file path immediately. It is not automatically insta
 
 ## Install locally for Codex
 
-Install all three directories together because the core skills share files.
+Install all three directories together. The skills link to each other's files.
 From this repository, run:
 
 ```sh
@@ -68,19 +68,19 @@ $review-change Review this branch against the notification requirements. Do not 
 $prevent-repeat Investigate our repeated imports of package internals. Propose an enforceable correction.
 ```
 
-Pair `engineer` with your existing goal skill for continued execution.
-The goal holds the requested outcome. The task record holds requirements, evidence, and remaining work.
+If you use a goal skill, one that keeps an agent working on a task across turns, pair it with `engineer`.
+The goal skill holds the requested outcome. The task record holds requirements, evidence, and remaining work.
 This stack provides no scheduler, model routing, or automatic merge permission.
 
 ## How much process applies
 
-A routine change following an established pattern needs focused investigation and its relevant checks.
-Changes to ownership, important interfaces, shared state, or several production paths need design comparison and independent review.
+A routine change that follows an established pattern needs focused investigation and the checks that cover it.
+[Substantial changes](skills/engineer/SKILL.md) also get a task record, a design comparison, and an independent review.
 Choose the reviewer from models available in the current environment. No model names are hardcoded.
 
 Repository guidance and existing testing, security, cleanup, and shipping procedures remain authoritative.
 The skills do not expand task scope or grant external-action permissions.
-They guide decisions. Executable checks and independent evidence establish the results they actually cover.
+They guide decisions. Only executable checks and independent evidence prove results, and only for what they cover.
 
 ## Validate changes
 
@@ -88,5 +88,5 @@ They guide decisions. Executable checks and independent evidence establish the r
 python3 scripts/check.py
 ```
 
-This checks the authored frontmatter format, explicit invocation policies, bundled skills, and local Markdown links.
-It does not establish behavioral quality. Use the [evaluation scenarios](evals/README.md) for that.
+This checks the authored frontmatter format, explicit invocation policies, the expected skill directories, and local Markdown links.
+It does not test how well the skills work. Use the [evaluation scenarios](evals/README.md) for that.

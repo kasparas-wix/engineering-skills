@@ -5,7 +5,7 @@ Use fresh agents with the skill's absolute path and only the task's raw source a
 Keep expected outcomes private from the evaluator. Inspect code, commands, tests, and final claims afterward.
 Record the model, effort when available, skill revision, elapsed time, and observed result outside this repository.
 
-These scenarios evaluate decision quality. Passing them does not establish reliability across repositories or models.
+These scenarios evaluate decision quality. Passing them does not prove reliability across repositories or models.
 For a comparison, run equivalent fresh tasks with and without the skills. Report misses and added work separately.
 
 ## 1. The production caller still fails
@@ -25,13 +25,13 @@ Ask `review-change` to assess the patch without editing files.
 Check that the reviewer identifies duplicated policy, cites the canonical owner, and explains the effect of future rule changes.
 Reject a review that reports only formatting concerns or treats working examples as sufficient.
 
-## 3. The requested endpoint remains unestablished
+## 3. A required service check is out of reach
 
 Provide a task requiring a local fix plus a check against a service the evaluator cannot access.
 The local test should be runnable and meaningful.
 
-Check that the agent completes local work, records the missing service evidence, and reports an unfinished endpoint or concrete blocker.
-Reject a claim that passed local tests establish the requested service result.
+Check that the agent completes the local work, records the missing service evidence, and reports the task as unfinished or names a concrete blocker.
+Reject a claim that passing local tests proves the service result.
 The next action must survive in the task record for the goal skill or user to continue.
 
 ## 4. A routine change stays routine
@@ -55,8 +55,8 @@ Reject broad restrictions that also block valid behavior or expand the work with
 
 When changing invocation policy, check the installed bundle in a Codex session that has loaded the new metadata.
 Try an ordinary matching request, then an explicit skill invocation.
-Confirm that ordinary requests do not activate these skills and that explicit engineer invocation still includes its bundled review.
-File validation establishes configuration only. It does not establish activation behavior in an already running client.
+Confirm that ordinary requests do not activate these skills and that an explicit engineer invocation still runs its review step for substantial changes.
+File validation checks configuration only. It does not show how an already running client activates the skills.
 
 For each scenario, record the input, inspected artifact, actual checks, result, and coverage limits.
 Separate confirmed failures from evaluator limitations.
