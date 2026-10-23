@@ -45,6 +45,7 @@ Ask before changing a public contract, deleting files, adding dependencies, or d
 
 ## 4. Implement and verify
 
+Before adding complexity for speculative or vanishingly unlikely race or security cases, follow the [robustness approval rule](references/architecture.md#proportionate-robustness).
 Use the repository's implementation and testing procedures when they exist.
 For functional changes, write a check that fails before the fix whenever practical. A check that never failed may not test the change.
 If you cannot reproduce the failure, record that and use the strongest check available.

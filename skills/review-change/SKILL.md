@@ -40,6 +40,7 @@ Answer these questions:
 - Do new abstractions hide useful complexity and keep internal details private?
 - Do checks exercise the behavior claimed, including the coordination between parts?
 - Do compatibility, authorization, concurrency, and deployment constraints hold where affected?
+- Does added complexity for speculative or vanishingly unlikely race or security cases have the user's approval?
 
 Follow promising concerns until you have evidence. Do not list hypothetical failures or stylistic preferences.
 Report concrete structural regressions as findings even when behavior appears correct.

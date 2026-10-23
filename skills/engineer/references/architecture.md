@@ -28,6 +28,13 @@ A wrapper can earn its place through validation, adaptation, policy, or a requir
 Prefer one canonical decision over several places that must change together.
 Reject speculative extension points without a concrete consumer or variation.
 
+## Proportionate robustness
+
+For a speculative or vanishingly unlikely race or security edge case, explain the concrete failure mode before adding complexity.
+State its likelihood and the complexity cost, including uncertainty in the likelihood estimate.
+Get the user's buy-in before implementing that added complexity.
+Do not silently expand scope for theoretical robustness.
+
 ## Compare meaningful alternatives
 
 When ownership or an important interface changes, sketch two materially different designs before substantial implementation.
