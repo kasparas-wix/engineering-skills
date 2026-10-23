@@ -1,8 +1,6 @@
 # Engineering skills
 
 A small skill stack for completing software tasks without accumulating avoidable complexity.
-It combines selected ideas from Poteto's pstack and Matt Pocock's architecture skills.
-Source snapshots and license notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Skills
 
