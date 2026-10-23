@@ -1,10 +1,12 @@
 ---
 name: engineer
-description: Complete software changes with source investigation, proportionate design comparison, independent review, and evidence of completion. Use for implementing features, fixing bugs, or refactoring existing code.
+description: Complete software changes with source investigation, design comparison, independent review, and evidence of completion. Use only when explicitly requested.
 ---
 
 # Engineer
 
+Activate only when the user explicitly names this skill or supplies its file path.
+Invoking this skill includes its bundled review-change step. That step needs no separate user invocation.
 Own the requested outcome through its authorized endpoint.
 Use the target repository's instructions and existing testing and shipping procedures.
 Resolve this file's real filesystem path before opening sibling skills or references.

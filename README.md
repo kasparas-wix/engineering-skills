@@ -14,6 +14,15 @@ A small skill stack for completing software tasks without accumulating avoidable
 `prevent-repeat` runs when recurring corrections justify separate work.
 Both core skills share one [architecture reference](skills/engineer/references/architecture.md).
 
+## Explicit invocation
+
+All three skills set `policy.allow_implicit_invocation: false` in `agents/openai.yaml`.
+Codex does not select them automatically from a matching task. Explicit `$skill-name` invocation remains available.
+See the [Codex invocation policy](https://learn.chatgpt.com/docs/build-skills#optional-metadata).
+
+Invoking `$engineer` includes its bundled `review-change` step. You do not need to invoke that step separately.
+Standalone review and recurring-correction work require explicit invocation of their respective skills.
+
 ## Use without installation
 
 Give the agent the absolute path to the entry skill:
@@ -79,5 +88,5 @@ They guide decisions. Executable checks and independent evidence establish the r
 python3 scripts/check.py
 ```
 
-This checks the authored frontmatter format, bundled skills, and local Markdown links.
+This checks the authored frontmatter format, explicit invocation policies, bundled skills, and local Markdown links.
 It does not establish behavioral quality. Use the [evaluation scenarios](evals/README.md) for that.

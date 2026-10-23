@@ -1,10 +1,11 @@
 ---
 name: prevent-repeat
-description: Investigate recurring engineering mistakes and replace repeated corrections with enforceable repository constraints. Use when the same class of defect or review correction has occurred more than once.
+description: Investigate recurring engineering mistakes and replace repeated corrections with enforceable repository constraints. Use only when explicitly requested.
 ---
 
 # Prevent repeat
 
+Activate only when the user explicitly names this skill or supplies its file path.
 Turn a demonstrated recurring mistake into a constraint that catches or eliminates it.
 Keep this work within its own authorized scope. A correction during another task does not authorize unrelated restructuring.
 

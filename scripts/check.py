@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check this bundle's plain-scalar frontmatter and local Markdown links."""
+"""Check frontmatter, explicit-only policies, and local Markdown links."""
 
 import re
 import sys
@@ -37,6 +37,12 @@ def check(root):
         if not description.strip():
             errors.append(f"{path.relative_to(root)}: empty description")
 
+        policy = skills / name / "agents" / "openai.yaml"
+        if not policy.is_file():
+            errors.append(f"{policy.relative_to(root)}: missing explicit invocation policy")
+        elif policy.read_text(encoding="utf-8") != "policy:\n  allow_implicit_invocation: false\n":
+            errors.append(f"{policy.relative_to(root)}: expected policy-only YAML with allow_implicit_invocation set to false")
+
     for path in sorted(root.rglob("*.md")):
         text = path.read_text(encoding="utf-8")
         for target in re.findall(r"\[[^\]\n]*\]\(([^)\n]+)\)", text):
@@ -56,4 +62,4 @@ if __name__ == "__main__":
     if failures:
         print("\n".join(failures), file=sys.stderr)
         sys.exit(1)
-    print("Checked 3 skill entries and all local Markdown links.")
+    print("Checked 3 skill entries, explicit invocation policies, and all local Markdown links.")

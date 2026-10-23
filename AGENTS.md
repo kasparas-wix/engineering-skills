@@ -5,6 +5,7 @@
 - Preserve task scope, repository guidance, and existing authorization boundaries.
 - Keep runtime instructions short. Put evaluation material outside the skill directories.
 - Give each requirement one authoritative home. Link to shared rules instead of copying them.
+- Keep all three Codex skills explicit-only. An explicit engineer invocation includes its bundled review step.
 - Add scripts only for repeated deterministic work. Use the Python standard library.
 - Keep source attribution and license notices when adapting upstream material.
 - Run `python3 scripts/check.py` after changes.

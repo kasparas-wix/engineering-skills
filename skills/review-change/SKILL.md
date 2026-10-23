@@ -1,10 +1,11 @@
 ---
 name: review-change
-description: Independently review a software change for requirement coverage, correctness, and structural quality. Use when a patch, branch, or proposed design needs review before acceptance or substantial implementation.
+description: Independently review a change for requirements, correctness, and structural quality. Use when explicitly requested or within an explicitly requested engineer workflow.
 ---
 
 # Review change
 
+Activate only when explicitly requested by the user or delegated by an explicitly invoked engineer workflow.
 Assess the stated requirements against source and observable evidence.
 Keep the review read-only. Findings are claims for the implementer to verify.
 Resolve this file's real filesystem path before opening sibling resources.

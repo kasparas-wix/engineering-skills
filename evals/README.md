@@ -53,6 +53,11 @@ Reject broad restrictions that also block valid behavior or expand the work with
 
 ## Acceptance record
 
+When changing invocation policy, check the installed bundle in a Codex session that has loaded the new metadata.
+Try an ordinary matching request, then an explicit skill invocation.
+Confirm that ordinary requests do not activate these skills and that explicit engineer invocation still includes its bundled review.
+File validation establishes configuration only. It does not establish activation behavior in an already running client.
+
 For each scenario, record the input, inspected artifact, actual checks, result, and coverage limits.
 Separate confirmed failures from evaluator limitations.
 A missing independent reviewer or inaccessible service remains an explicit gap.
